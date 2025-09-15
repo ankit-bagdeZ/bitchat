@@ -44,10 +44,8 @@ sequenceDiagram
     Note over Bob: Schedule relay with jitter to prevent collision
     Bob->>Bob: DispatchQueue.main.asyncAfter(deadline: .now() + 0.095) { relay() }
     
-    parallel
-        Note over Charlie: Similar relay decision process
-        Charlie->>Charlie: RelayController.decide() -> shouldRelay = true, newTTL = 5, delayMs = 128ms
-    end
+    Note over Charlie: Similar relay decision process
+    Charlie->>Charlie: RelayController.decide() -> shouldRelay = true, newTTL = 5, delayMs = 128ms
     
     Note over Bob, Charlie: Jittered Relay Execution (Bob wins race)
     
